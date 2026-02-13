@@ -23,6 +23,7 @@ import { connectionProperties } from './modules/connectionProperties.js';
 import { nodeProperties } from './modules/nodeProperties.js';
 import { contextMenu } from './modules/contextMenu.js';
 import { tutorial } from './modules/tutorial.js';
+import { touchSupport } from './modules/touchSupport.js';
 import { showToast } from './utils/dom.js';
 
 class App {
@@ -112,6 +113,9 @@ class App {
 
         // Tutorial and onboarding
         tutorial.init();
+
+        // Touch support for mobile devices
+        touchSupport.init();
 
         // Storage module (will attempt to load saved workflow)
         storage.init();

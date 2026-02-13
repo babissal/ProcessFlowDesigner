@@ -6,6 +6,7 @@
 import { CONFIG, getNodeConfig } from '../config.js';
 import { stateManager } from './stateManager.js';
 import { canvas } from './canvas.js';
+import { showToast } from '../utils/dom.js';
 
 class Sidebar {
     constructor() {
@@ -138,7 +139,6 @@ class Sidebar {
             const nodeType = e.dataTransfer.getData('nodeType');
 
             if (!nodeType) {
-                console.error('No node type in drop data!');
                 return;
             }
 
@@ -146,6 +146,58 @@ class Sidebar {
             const coords = canvas.screenToCanvas(e.clientX, e.clientY);
 
             this.createNodeAtPosition(nodeType, coords.x, coords.y);
+        });
+
+        // Mobile: tap palette node to add at canvas center
+        this.setupMobilePaletteTap();
+    }
+
+    /**
+     * Setup tap-to-add for mobile palette nodes
+     * On touch devices, HTML5 drag-and-drop doesn't work,
+     * so tapping a palette node creates it at the center of the visible canvas.
+     */
+    setupMobilePaletteTap() {
+        if (!('ontouchstart' in window || navigator.maxTouchPoints > 0)) return;
+
+        this.paletteNodes.forEach(paletteNode => {
+            paletteNode.addEventListener('click', (e) => {
+                // Only on mobile-sized screens (sidebar is off-canvas)
+                if (window.innerWidth > 767) return;
+
+                const nodeType = paletteNode.dataset.nodeType;
+                if (!nodeType) return;
+
+                // Get the center of the visible canvas area
+                const svgEl = canvas.getSVG();
+                if (!svgEl) return;
+
+                const rect = svgEl.getBoundingClientRect();
+                const centerScreenX = rect.left + rect.width / 2;
+                const centerScreenY = rect.top + rect.height / 2;
+
+                // Add slight random offset so multiple taps don't stack exactly
+                const offsetX = (Math.random() - 0.5) * 80;
+                const offsetY = (Math.random() - 0.5) * 80;
+
+                const coords = canvas.screenToCanvas(centerScreenX + offsetX, centerScreenY + offsetY);
+                this.createNodeAtPosition(nodeType, coords.x, coords.y);
+
+                // Close sidebar after adding node on mobile
+                const sidebar = document.getElementById('sidebar');
+                const toggleBtn = document.getElementById('mobile-sidebar-toggle');
+                const overlay = document.getElementById('mobile-sidebar-overlay');
+                if (sidebar && sidebar.classList.contains('mobile-open')) {
+                    sidebar.classList.remove('mobile-open');
+                    if (toggleBtn) {
+                        toggleBtn.classList.remove('active');
+                        toggleBtn.innerHTML = '&#9776;';
+                    }
+                    if (overlay) overlay.classList.remove('active');
+                }
+
+                showToast('Node added to canvas', 'success');
+            });
         });
     }
 
