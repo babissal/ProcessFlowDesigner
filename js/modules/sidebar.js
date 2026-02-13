@@ -31,6 +31,53 @@ class Sidebar {
         this.setupDragAndDrop();
         this.setupConnectionTool();
         this.setupCategories();
+        this.setupMobileToggle();
+    }
+
+    /**
+     * Setup mobile sidebar toggle
+     */
+    setupMobileToggle() {
+        const sidebar = document.getElementById('sidebar');
+        if (!sidebar) return;
+
+        // Toggle sidebar on mobile when clicking the toggle button (CSS ::before element)
+        sidebar.addEventListener('click', (e) => {
+            // Check if click is on the toggle button area (right side of sidebar)
+            const rect = sidebar.getBoundingClientRect();
+            const clickX = e.clientX;
+
+            // If sidebar is closed and click is near the right edge toggle button
+            if (!sidebar.classList.contains('mobile-open') && clickX > rect.right - 10 && clickX < rect.right + 50) {
+                sidebar.classList.add('mobile-open');
+                e.stopPropagation();
+            }
+            // If sidebar is open and click is on close button
+            else if (sidebar.classList.contains('mobile-open') && clickX > rect.right - 10 && clickX < rect.right + 50) {
+                sidebar.classList.remove('mobile-open');
+                e.stopPropagation();
+            }
+        });
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 767 && sidebar.classList.contains('mobile-open')) {
+                if (!sidebar.contains(e.target)) {
+                    sidebar.classList.remove('mobile-open');
+                }
+            }
+        });
+
+        // Handle window resize - close sidebar on mobile, open on desktop
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                if (window.innerWidth > 767) {
+                    sidebar.classList.remove('mobile-open');
+                }
+            }, 250);
+        });
     }
 
     /**

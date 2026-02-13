@@ -1,0 +1,396 @@
+/**
+ * Responsive Styles for Mobile Devices
+ * Breakpoints: Mobile (<768px), Tablet (768px-1024px), Desktop (>1024px)
+ */
+
+/* ===== MOBILE STYLES (< 768px) ===== */
+@media screen and (max-width: 767px) {
+
+    /* Hide minimap on mobile - takes up too much space */
+    #minimap {
+        display: none !important;
+    }
+
+    /* Adjust main layout - stack vertically */
+    body {
+        overflow: hidden;
+    }
+
+    /* Toolbar - make it more compact */
+    #toolbar {
+        height: auto;
+        min-height: 50px;
+        padding: 8px;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    #workflow-name {
+        font-size: 14px;
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .toolbar-section {
+        gap: 4px;
+    }
+
+    .toolbar-btn {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        padding: 6px;
+    }
+
+    .toolbar-btn span {
+        font-size: 11px;
+    }
+
+    /* Sidebar - make it collapsible with toggle button */
+    #sidebar {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 280px;
+        height: calc(100vh - 60px - 40px);
+        z-index: 1000;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+    }
+
+    #sidebar.mobile-open {
+        transform: translateX(0);
+    }
+
+    /* Add mobile sidebar toggle button */
+    #sidebar::before {
+        content: '☰';
+        position: absolute;
+        right: -40px;
+        top: 10px;
+        width: 40px;
+        height: 40px;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-left: none;
+        border-radius: 0 8px 8px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    #sidebar.mobile-open::before {
+        content: '✕';
+    }
+
+    .sidebar-section {
+        padding: 12px;
+    }
+
+    .sidebar-section h3 {
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+
+    /* Node palette - make items larger for touch */
+    .palette-node {
+        min-height: 50px;
+        padding: 10px;
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+
+    .palette-node-icon {
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+        font-size: 18px;
+    }
+
+    /* Canvas container - adjust for mobile */
+    #canvas-container {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        bottom: 40px;
+        width: 100%;
+        height: calc(100vh - 60px - 40px);
+    }
+
+    /* Canvas overlay - adjust text */
+    .canvas-overlay-content h2 {
+        font-size: 20px;
+    }
+
+    .canvas-overlay-content p {
+        font-size: 14px;
+    }
+
+    /* Status bar - make more compact */
+    #status-bar {
+        height: 40px;
+        padding: 8px 12px;
+        font-size: 12px;
+        gap: 12px;
+    }
+
+    .status-item {
+        font-size: 12px;
+    }
+
+    /* Modals - full screen on mobile */
+    .modal-content {
+        width: 95%;
+        max-width: 95%;
+        max-height: 90vh;
+        margin: 5vh auto;
+        padding: 16px;
+    }
+
+    .modal-header h2 {
+        font-size: 18px;
+    }
+
+    .modal-body {
+        font-size: 14px;
+        max-height: calc(90vh - 120px);
+    }
+
+    /* Properties panels - full width */
+    .properties-panel {
+        width: 100%;
+        max-width: 100%;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        top: auto;
+        height: 60vh;
+        max-height: 60vh;
+        border-radius: 16px 16px 0 0;
+    }
+
+    .properties-panel-content {
+        padding: 16px;
+    }
+
+    /* Context menu - adjust size */
+    .context-menu {
+        min-width: 180px;
+    }
+
+    .context-menu-item {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    /* Metrics panel - full screen */
+    #metrics-panel {
+        width: 100%;
+        max-width: 100%;
+        right: 0;
+    }
+
+    .metrics-item {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    /* Tutorial overlay - adjust for mobile */
+    .tutorial-overlay {
+        padding: 20px;
+    }
+
+    .tutorial-content {
+        max-width: 95%;
+        padding: 20px;
+    }
+
+    .tutorial-content h2 {
+        font-size: 20px;
+    }
+
+    .tutorial-content p {
+        font-size: 14px;
+    }
+
+    .tutorial-controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .tutorial-controls button {
+        width: 100%;
+    }
+
+    /* Keyboard shortcuts modal - adjust layout */
+    .shortcuts-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .shortcut-item {
+        font-size: 13px;
+    }
+
+    /* Hide some less important UI on mobile */
+    .toolbar-separator {
+        display: none;
+    }
+
+    /* Make sure tooltips don't overflow */
+    .tooltip {
+        font-size: 11px;
+        padding: 4px 8px;
+        max-width: 200px;
+    }
+
+    /* Adjust category toggles */
+    .category-toggle {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    /* Make connection tool button more prominent */
+    #connection-tool {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
+/* ===== TABLET STYLES (768px - 1024px) ===== */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    /* Sidebar - slightly narrower */
+    #sidebar {
+        width: 240px;
+    }
+
+    /* Canvas - adjust for sidebar width */
+    #canvas-container {
+        left: 240px;
+        width: calc(100% - 240px);
+    }
+
+    /* Toolbar - slightly more compact */
+    #toolbar {
+        padding: 10px 16px;
+    }
+
+    .toolbar-btn {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+    }
+
+    /* Properties panels - narrower */
+    .properties-panel {
+        width: 320px;
+        max-width: 320px;
+    }
+
+    /* Metrics panel - narrower */
+    #metrics-panel {
+        width: 280px;
+    }
+
+    /* Minimap - smaller */
+    #minimap {
+        width: 180px;
+        height: 140px;
+    }
+}
+
+/* ===== TOUCH DEVICE IMPROVEMENTS ===== */
+@media (hover: none) and (pointer: coarse) {
+
+    /* Increase touch targets */
+    .node {
+        cursor: pointer;
+    }
+
+    .palette-node,
+    .toolbar-btn,
+    .context-menu-item,
+    button {
+        min-height: 44px; /* iOS recommended touch target size */
+    }
+
+    /* Remove hover effects on touch devices */
+    .toolbar-btn:hover,
+    .palette-node:hover,
+    .context-menu-item:hover {
+        transform: none;
+    }
+
+    /* Add active states instead */
+    .toolbar-btn:active,
+    .palette-node:active,
+    .context-menu-item:active {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+}
+
+/* ===== LANDSCAPE MOBILE ===== */
+@media screen and (max-width: 767px) and (orientation: landscape) {
+
+    /* Adjust for landscape - sidebar can be visible */
+    #sidebar {
+        width: 220px;
+        transform: translateX(0);
+        position: relative;
+        height: calc(100vh - 50px - 35px);
+    }
+
+    #sidebar::before {
+        display: none;
+    }
+
+    #canvas-container {
+        left: 220px;
+        width: calc(100% - 220px);
+        height: calc(100vh - 50px - 35px);
+    }
+
+    #toolbar {
+        height: 50px;
+        min-height: 50px;
+    }
+
+    #status-bar {
+        height: 35px;
+    }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    #toolbar,
+    #sidebar,
+    #status-bar,
+    #minimap,
+    #metrics-panel,
+    .properties-panel,
+    .context-menu,
+    .modal-overlay {
+        display: none !important;
+    }
+
+    #canvas-container {
+        position: static;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+    }
+
+    body {
+        overflow: visible;
+    }
+}
