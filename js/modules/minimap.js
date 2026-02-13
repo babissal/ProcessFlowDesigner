@@ -23,7 +23,6 @@ class Minimap {
      * Initialize mini-map
      */
     init() {
-        console.log('Initializing mini-map...');
         this.createMinimapContainer();
         this.setupEventListeners();
         this.update();

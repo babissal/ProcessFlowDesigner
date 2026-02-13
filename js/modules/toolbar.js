@@ -17,6 +17,8 @@ import { grouping } from './grouping.js';
 import { nodes } from './nodes.js';
 import { connections } from './connections.js';
 import { tutorial } from './tutorial.js';
+import { nodeProperties } from './nodeProperties.js';
+import { connectionProperties } from './connectionProperties.js';
 import { showModal, showToast } from '../utils/dom.js';
 
 class Toolbar {

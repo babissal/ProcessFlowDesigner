@@ -17,8 +17,6 @@ class Metrics {
      * Initialize metrics panel
      */
     init() {
-        console.log('Initializing metrics panel...');
-
         this.createPanel();
         this.setupEventListeners();
 

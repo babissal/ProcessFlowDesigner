@@ -23,7 +23,6 @@ class Selection {
      * Initialize selection module
      */
     init() {
-        console.log('Initializing selection module...');
         this.setupMarqueeSelection();
     }
 
@@ -219,7 +218,6 @@ class Selection {
         // Explicitly update visual rendering
         nodes.updateSelectionRender();
 
-        console.log(`Selected all ${nodeIds.length} nodes`);
     }
 }
 

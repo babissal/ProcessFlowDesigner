@@ -165,7 +165,6 @@ class ExportManager {
     async exportPNG() {
         // Prevent concurrent exports
         if (this.isExportingPNG) {
-            console.log('PNG export already in progress');
             return;
         }
 

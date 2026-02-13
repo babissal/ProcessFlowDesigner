@@ -19,8 +19,6 @@ class ConnectionProperties {
      * Initialize connection properties panel
      */
     init() {
-        console.log('Initializing connection properties panel...');
-
         this.createPanel();
         this.setupEventListeners();
     }

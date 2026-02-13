@@ -19,8 +19,6 @@ class NodeProperties {
      * Initialize node properties panel
      */
     init() {
-        console.log('Initializing node properties panel...');
-
         this.createPanel();
         this.setupEventListeners();
     }

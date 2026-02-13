@@ -62,7 +62,6 @@ class Storage {
             this.lastSaveTime = new Date();
             this.updateAutosaveIndicator();
 
-            console.log('Autosaved to LocalStorage');
 
         } catch (error) {
             console.error('Error saving to LocalStorage:', error);
@@ -82,7 +81,6 @@ class Storage {
             const data = localStorage.getItem(CONFIG.STORAGE.KEY);
 
             if (!data) {
-                console.log('No saved workflow found');
                 return false;
             }
 
@@ -121,7 +119,6 @@ class Storage {
                 canvas.hideOverlay();
             }
 
-            console.log('Loaded workflow from LocalStorage');
             eventBus.emit(CONFIG.EVENTS.WORKFLOW_LOADED, workflow);
 
             showToast('Previous workflow restored', 'info');
@@ -140,7 +137,6 @@ class Storage {
     clearLocalStorage() {
         try {
             localStorage.removeItem(CONFIG.STORAGE.KEY);
-            console.log('Cleared LocalStorage');
             return true;
         } catch (error) {
             console.error('Error clearing LocalStorage:', error);

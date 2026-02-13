@@ -7,6 +7,7 @@ import { CONFIG } from '../config.js';
 import { eventBus } from './eventBus.js';
 import { stateManager } from './stateManager.js';
 import { nodes } from './nodes.js';
+import { connections } from './connections.js';
 import { layoutEngine } from './layoutEngine.js';
 import { grouping } from './grouping.js';
 import { nodeProperties } from './nodeProperties.js';
@@ -24,8 +25,6 @@ class ContextMenu {
      * Initialize context menu
      */
     init() {
-        console.log('Initializing context menu...');
-
         this.createMenu();
         this.setupEventListeners();
     }
@@ -159,7 +158,6 @@ class ContextMenu {
             {
                 label: '🏷️ Edit Label',
                 action: () => {
-                    const connections = require('./connections.js').connections;
                     connections.startEditingLabel(connectionId);
                 }
             },
@@ -212,8 +210,10 @@ class ContextMenu {
             {
                 label: '🔲 Select All',
                 action: () => {
+                    stateManager.clearSelection();
                     const allNodes = stateManager.getState().workflow.nodes;
                     allNodes.forEach(node => stateManager.selectNode(node.id, true));
+                    nodes.updateSelectionRender();
                     showToast(`Selected ${allNodes.length} nodes`, 'success');
                 }
             }

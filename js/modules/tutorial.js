@@ -20,8 +20,6 @@ class Tutorial {
      * Initialize tutorial
      */
     init() {
-        console.log('Initializing tutorial system...');
-
         // Check if user has seen tutorial
         this.hasSeenTutorial = localStorage.getItem('processFlowDesigner_tutorialComplete') === 'true';
 

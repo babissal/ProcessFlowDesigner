@@ -58,11 +58,9 @@ class DeleteNodeCommand extends Command {
 
     undo() {
         if (this.node) {
-            // Restore node with original ID
-            const restoredNode = { ...this.node };
-            stateManager.state.workflow.nodes.push(restoredNode);
-            stateManager.notifySubscribers();
-            eventBus.emit(CONFIG.EVENTS.NODE_ADDED, restoredNode);
+            // Restore node with original ID using addNode
+            // Pass the full node object including id so it gets restored with same id
+            stateManager.addNode({ ...this.node });
 
             // Restore connections
             this.connections.forEach(conn => {

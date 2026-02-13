@@ -41,8 +41,6 @@ class Themes {
      * Initialize themes
      */
     init() {
-        console.log('Initializing theme system...');
-
         // Load saved theme from localStorage
         const savedTheme = localStorage.getItem('processFlowDesigner_theme');
         if (savedTheme && this.themes[savedTheme]) {
@@ -115,7 +113,6 @@ class Themes {
             }
         }
 
-        console.log(`✅ Applied ${themeName} theme`);
     }
 
     /**

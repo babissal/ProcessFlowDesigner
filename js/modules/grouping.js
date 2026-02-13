@@ -20,8 +20,6 @@ class Grouping {
      * Initialize grouping
      */
     init() {
-        console.log('Initializing node grouping...');
-
         this.setupEventListeners();
     }
 
