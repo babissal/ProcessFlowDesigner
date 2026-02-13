@@ -61,7 +61,8 @@ class Toolbar {
             zoomIn: document.getElementById('btn-zoom-in'),
             zoomOut: document.getElementById('btn-zoom-out'),
             zoomReset: document.getElementById('btn-zoom-reset'),
-            help: document.getElementById('btn-help')
+            help: document.getElementById('btn-help'),
+            delete: document.getElementById('btn-delete')
         };
 
         // Add event listeners
@@ -120,6 +121,13 @@ class Toolbar {
         if (this.buttons.help) {
             this.buttons.help.addEventListener('click', () => this.handleHelp());
         }
+
+        if (this.buttons.delete) {
+            this.buttons.delete.addEventListener('click', () => this.handleDelete());
+        }
+
+        // Update delete button state when selection changes
+        stateManager.subscribe(() => this.updateDeleteButtonState());
 
         // Mark as initialized
         this.buttonsInitialized = true;
@@ -436,11 +444,16 @@ class Toolbar {
     }
 
     /**
-     * Update toolbar state based on selection
+     * Update delete button enabled/disabled state based on selection
      */
-    updateToolbarState() {
-        // Can be used to enable/disable buttons based on state
-        // For Phase 1, all buttons are always enabled
+    updateDeleteButtonState() {
+        if (!this.buttons.delete) return;
+
+        const state = stateManager.getState();
+        const hasSelection = state.ui.selectedNodes.length > 0 || state.ui.selectedConnections.length > 0;
+
+        this.buttons.delete.disabled = !hasSelection;
+        this.buttons.delete.style.opacity = hasSelection ? '1' : '0.5';
     }
 }
 
