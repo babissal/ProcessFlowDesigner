@@ -39,44 +39,44 @@ class Sidebar {
      */
     setupMobileToggle() {
         const sidebar = document.getElementById('sidebar');
-        if (!sidebar) return;
+        const toggleBtn = document.getElementById('mobile-sidebar-toggle');
+        const overlay = document.getElementById('mobile-sidebar-overlay');
+        if (!sidebar || !toggleBtn || !overlay) return;
 
-        // Toggle sidebar on mobile when clicking the toggle button (CSS ::before element)
-        sidebar.addEventListener('click', (e) => {
-            // Check if click is on the toggle button area (right side of sidebar)
-            const rect = sidebar.getBoundingClientRect();
-            const clickX = e.clientX;
+        const openSidebar = () => {
+            sidebar.classList.add('mobile-open');
+            toggleBtn.classList.add('active');
+            toggleBtn.innerHTML = '&#10005;'; // X icon
+            overlay.classList.add('active');
+        };
 
-            // If sidebar is closed and click is near the right edge toggle button
-            if (!sidebar.classList.contains('mobile-open') && clickX > rect.right - 10 && clickX < rect.right + 50) {
-                sidebar.classList.add('mobile-open');
-                e.stopPropagation();
-            }
-            // If sidebar is open and click is on close button
-            else if (sidebar.classList.contains('mobile-open') && clickX > rect.right - 10 && clickX < rect.right + 50) {
-                sidebar.classList.remove('mobile-open');
-                e.stopPropagation();
+        const closeSidebar = () => {
+            sidebar.classList.remove('mobile-open');
+            toggleBtn.classList.remove('active');
+            toggleBtn.innerHTML = '&#9776;'; // hamburger icon
+            overlay.classList.remove('active');
+        };
+
+        // Toggle button click
+        toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (sidebar.classList.contains('mobile-open')) {
+                closeSidebar();
+            } else {
+                openSidebar();
             }
         });
 
-        // Close sidebar when clicking outside on mobile
-        document.addEventListener('click', (e) => {
-            if (window.innerWidth <= 767 && sidebar.classList.contains('mobile-open')) {
-                if (!sidebar.contains(e.target)) {
-                    sidebar.classList.remove('mobile-open');
-                }
-            }
+        // Close when clicking overlay
+        overlay.addEventListener('click', () => {
+            closeSidebar();
         });
 
-        // Handle window resize - close sidebar on mobile, open on desktop
-        let resizeTimeout;
+        // Close on window resize to desktop
         window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                if (window.innerWidth > 767) {
-                    sidebar.classList.remove('mobile-open');
-                }
-            }, 250);
+            if (window.innerWidth > 767) {
+                closeSidebar();
+            }
         });
     }
 
