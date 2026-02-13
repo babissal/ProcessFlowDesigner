@@ -1,0 +1,70 @@
+/**
+ * Connection Styles
+ */
+
+.connection {
+    cursor: pointer;
+    transition: stroke 0.2s ease, stroke-width 0.2s ease;
+}
+
+.connection:hover {
+    stroke: var(--primary-color) !important;
+    stroke-width: 3 !important;
+}
+
+.connection.selected {
+    stroke: var(--primary-color) !important;
+    stroke-width: 3 !important;
+    filter: drop-shadow(0 0 4px rgba(33, 150, 243, 0.5));
+}
+
+/* Connection animations */
+@keyframes connectionAppear {
+    from {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+    }
+    to {
+        stroke-dasharray: 0;
+        stroke-dashoffset: 0;
+    }
+}
+
+.connection {
+    animation: connectionAppear 0.5s ease-out;
+}
+
+/* Connection labels */
+.connection-label {
+    pointer-events: none;
+    user-select: none;
+}
+
+.connection-label-bg {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.connection-label-text {
+    pointer-events: none;
+}
+
+/* Connection label hover effect */
+.connection:hover + .connection-label .connection-label-bg,
+.connection.selected + .connection-label .connection-label-bg {
+    stroke: var(--primary-color);
+    stroke-width: 2;
+}
+
+/* Connection flow animation (Phase 4) */
+@keyframes flow {
+    0% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: 20;
+    }
+}
+
+.connection.animated {
+    animation: flow 1s linear infinite;
+}

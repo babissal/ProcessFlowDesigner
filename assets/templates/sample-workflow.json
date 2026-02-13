@@ -1,0 +1,126 @@
+{
+  "id": "workflow-sample",
+  "name": "Sample Workflow",
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "node-1",
+      "type": "start",
+      "label": "Start",
+      "color": "#4CAF50",
+      "strokeColor": "#2E7D32",
+      "width": 80,
+      "height": 80,
+      "x": 100,
+      "y": 100
+    },
+    {
+      "id": "node-2",
+      "type": "task",
+      "label": "Process Request",
+      "color": "#2196F3",
+      "strokeColor": "#1565C0",
+      "width": 120,
+      "height": 60,
+      "x": 250,
+      "y": 110
+    },
+    {
+      "id": "node-3",
+      "type": "decision",
+      "label": "Valid?",
+      "color": "#FFC107",
+      "strokeColor": "#F57C00",
+      "width": 100,
+      "height": 100,
+      "x": 430,
+      "y": 90
+    },
+    {
+      "id": "node-4",
+      "type": "task",
+      "label": "Approve",
+      "color": "#2196F3",
+      "strokeColor": "#1565C0",
+      "width": 120,
+      "height": 60,
+      "x": 600,
+      "y": 60
+    },
+    {
+      "id": "node-5",
+      "type": "task",
+      "label": "Reject",
+      "color": "#2196F3",
+      "strokeColor": "#1565C0",
+      "width": 120,
+      "height": 60,
+      "x": 600,
+      "y": 160
+    },
+    {
+      "id": "node-6",
+      "type": "end",
+      "label": "End",
+      "color": "#F44336",
+      "strokeColor": "#C62828",
+      "width": 80,
+      "height": 80,
+      "x": 780,
+      "y": 100
+    }
+  ],
+  "connections": [
+    {
+      "id": "conn-1",
+      "from": "node-1",
+      "to": "node-2",
+      "label": "",
+      "style": "solid"
+    },
+    {
+      "id": "conn-2",
+      "from": "node-2",
+      "to": "node-3",
+      "label": "",
+      "style": "solid"
+    },
+    {
+      "id": "conn-3",
+      "from": "node-3",
+      "to": "node-4",
+      "label": "Yes",
+      "style": "solid"
+    },
+    {
+      "id": "conn-4",
+      "from": "node-3",
+      "to": "node-5",
+      "label": "No",
+      "style": "solid"
+    },
+    {
+      "id": "conn-5",
+      "from": "node-4",
+      "to": "node-6",
+      "label": "",
+      "style": "solid"
+    },
+    {
+      "id": "conn-6",
+      "from": "node-5",
+      "to": "node-6",
+      "label": "",
+      "style": "solid"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2026-02-12T00:00:00.000Z",
+    "updatedAt": "2026-02-12T00:00:00.000Z",
+    "zoomLevel": 1,
+    "canvasOffset": {
+      "x": 0,
+      "y": 0
+    }
+  }
+}

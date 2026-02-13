@@ -1,0 +1,80 @@
+/**
+ * Toolbar Styles
+ */
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    background-color: var(--surface-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0 16px;
+    box-shadow: var(--shadow);
+    z-index: 100;
+}
+
+.toolbar-section {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.toolbar-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    background-color: transparent;
+    color: var(--text-primary);
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+
+.toolbar-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.toolbar-btn:active {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.toolbar-btn .icon {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.toolbar-btn .label {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.toolbar-spacer {
+    flex: 1;
+}
+
+.workflow-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    padding: 4px 8px;
+    border-radius: 4px;
+    outline: none;
+    cursor: text;
+    min-width: 150px;
+    text-align: center;
+}
+
+.workflow-name:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.workflow-name:focus {
+    background-color: white;
+    box-shadow: 0 0 0 2px var(--primary-color);
+}
+
+.workflow-name:empty::before {
+    content: 'Untitled Workflow';
+    color: var(--text-secondary);
+}

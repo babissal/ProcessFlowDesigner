@@ -1,0 +1,57 @@
+/**
+ * Status Bar Styles
+ */
+
+.status-bar {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    background-color: var(--surface-color);
+    border-top: 1px solid var(--border-color);
+    padding: 0 16px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    z-index: 100;
+}
+
+.status-section {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-label {
+    font-weight: 500;
+}
+
+.status-message {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.status-right {
+    margin-left: auto;
+}
+
+.status-autosave {
+    font-size: 10px;
+    color: #bdbdbd;
+    transition: color 0.3s ease;
+}
+
+.status-autosave.saved {
+    color: var(--success-color);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.status-autosave.pulse {
+    animation: pulse 1s ease-out;
+}

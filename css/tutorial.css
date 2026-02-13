@@ -1,0 +1,421 @@
+/**
+ * Tutorial and Help System Styles
+ */
+
+/* Tutorial Overlay */
+.tutorial-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.tutorial-overlay.active {
+    display: flex;
+}
+
+.tutorial-content {
+    background: white;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease-out;
+}
+
+.tutorial-header {
+    padding: 24px 24px 16px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tutorial-header h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.tutorial-skip {
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: #999;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.tutorial-skip:hover {
+    background-color: #f5f5f5;
+    color: #666;
+}
+
+.tutorial-body {
+    padding: 24px;
+}
+
+.tutorial-body p {
+    margin: 0 0 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.tutorial-body p:last-child {
+    margin-bottom: 0;
+}
+
+.tutorial-body strong {
+    color: #333;
+    font-weight: 600;
+}
+
+.tutorial-features,
+.tutorial-list {
+    margin: 16px 0;
+    padding-left: 20px;
+}
+
+.tutorial-features li,
+.tutorial-list li {
+    margin: 8px 0;
+    line-height: 1.6;
+    color: #555;
+}
+
+.tutorial-action {
+    background-color: #f5f5f5;
+    padding: 16px;
+    border-radius: 8px;
+    margin: 16px 0;
+}
+
+.tutorial-action ol {
+    margin: 8px 0 0;
+    padding-left: 20px;
+}
+
+.tutorial-action li {
+    margin: 6px 0;
+    color: #555;
+}
+
+.tutorial-tip {
+    background-color: #e3f2fd;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border-left: 4px solid #2196F3;
+    margin: 16px 0 0;
+    font-size: 14px;
+}
+
+.tutorial-quick-reference {
+    background-color: #f5f5f5;
+    padding: 16px;
+    border-radius: 8px;
+    margin: 16px 0;
+}
+
+.tutorial-quick-reference h4 {
+    margin: 0 0 12px;
+    color: #333;
+    font-size: 16px;
+}
+
+.tutorial-quick-reference ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.tutorial-quick-reference li {
+    margin: 6px 0;
+    color: #555;
+}
+
+.tutorial-footer {
+    padding: 16px 24px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tutorial-progress {
+    color: #666;
+    font-size: 14px;
+}
+
+.tutorial-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.tutorial-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tutorial-prev {
+    background-color: #f5f5f5;
+    color: #666;
+}
+
+.tutorial-prev:hover:not(:disabled) {
+    background-color: #e0e0e0;
+}
+
+.tutorial-prev:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.tutorial-next {
+    background-color: #2196F3;
+    color: white;
+}
+
+.tutorial-next:hover {
+    background-color: #1976D2;
+}
+
+/* Tutorial Highlight Effect */
+.tutorial-highlight {
+    position: relative;
+    z-index: 9999;
+    box-shadow: 0 0 0 4px rgba(33, 150, 243, 0.5), 0 0 20px rgba(33, 150, 243, 0.3);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 4px rgba(33, 150, 243, 0.5), 0 0 20px rgba(33, 150, 243, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(33, 150, 243, 0.3), 0 0 30px rgba(33, 150, 243, 0.2);
+    }
+}
+
+/* Keyboard Shortcuts Overlay */
+.shortcuts-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.shortcuts-content {
+    background: white;
+    border-radius: 12px;
+    max-width: 900px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease-out;
+}
+
+.shortcuts-header {
+    padding: 24px 24px 16px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shortcuts-header h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.shortcuts-close {
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: #999;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.shortcuts-close:hover {
+    background-color: #f5f5f5;
+    color: #666;
+}
+
+.shortcuts-body {
+    padding: 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 32px;
+}
+
+.shortcuts-column h3 {
+    margin: 0 0 16px;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    border-bottom: 2px solid #2196F3;
+    padding-bottom: 8px;
+}
+
+.shortcut-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    gap: 16px;
+}
+
+.shortcut-item span {
+    color: #666;
+    font-size: 14px;
+}
+
+.shortcut-item kbd {
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+    padding: 4px 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+    white-space: nowrap;
+}
+
+.shortcuts-footer {
+    padding: 16px 24px 24px;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+.shortcuts-tip {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Dark Theme Support */
+body.dark-theme .tutorial-content,
+body.dark-theme .shortcuts-content {
+    background: #2c2c2c;
+    color: #e0e0e0;
+}
+
+body.dark-theme .tutorial-header,
+body.dark-theme .shortcuts-header {
+    border-bottom-color: #444;
+}
+
+body.dark-theme .tutorial-header h2,
+body.dark-theme .shortcuts-header h2,
+body.dark-theme .shortcuts-column h3 {
+    color: #e0e0e0;
+}
+
+body.dark-theme .tutorial-body p,
+body.dark-theme .tutorial-features li,
+body.dark-theme .tutorial-list li,
+body.dark-theme .tutorial-action li,
+body.dark-theme .tutorial-quick-reference li,
+body.dark-theme .shortcut-item span {
+    color: #b0b0b0;
+}
+
+body.dark-theme .tutorial-body strong {
+    color: #fff;
+}
+
+body.dark-theme .tutorial-action,
+body.dark-theme .tutorial-quick-reference {
+    background-color: #3a3a3a;
+}
+
+body.dark-theme .tutorial-tip {
+    background-color: #1e3a5f;
+    border-left-color: #2196F3;
+}
+
+body.dark-theme .tutorial-prev {
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+}
+
+body.dark-theme .tutorial-prev:hover:not(:disabled) {
+    background-color: #4a4a4a;
+}
+
+body.dark-theme .shortcut-item kbd {
+    background-color: #3a3a3a;
+    border-color: #555;
+    color: #e0e0e0;
+}
+
+body.dark-theme .shortcuts-footer {
+    border-top-color: #444;
+}
+
+body.dark-theme .tutorial-skip,
+body.dark-theme .shortcuts-close {
+    color: #999;
+}
+
+body.dark-theme .tutorial-skip:hover,
+body.dark-theme .shortcuts-close:hover {
+    background-color: #3a3a3a;
+    color: #ccc;
+}

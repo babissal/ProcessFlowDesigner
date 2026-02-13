@@ -1,0 +1,149 @@
+/**
+ * Node Styles
+ */
+
+.node {
+    cursor: move;
+    user-select: none;
+}
+
+.node-shape {
+    transition: stroke 0.2s ease, stroke-width 0.2s ease, filter 0.2s ease;
+}
+
+.node:hover .node-shape {
+    filter: brightness(1.1);
+}
+
+.node-shape.selected {
+    stroke: var(--primary-color) !important;
+    stroke-width: 4 !important;
+    filter: drop-shadow(0 0 10px rgba(33, 150, 243, 0.8));
+    animation: pulse-selected 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-selected {
+    0%, 100% {
+        filter: drop-shadow(0 0 8px rgba(33, 150, 243, 0.8));
+    }
+    50% {
+        filter: drop-shadow(0 0 14px rgba(33, 150, 243, 1));
+    }
+}
+
+.node-label {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Node label editor */
+.node-label-editor {
+    pointer-events: all;
+}
+
+.node-label-input {
+    font-family: inherit;
+    outline: none;
+}
+
+.node-label-input:focus {
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.3);
+}
+
+/* Drag feedback */
+.node.dragging {
+    opacity: 0.8;
+}
+
+/* Node animations */
+@keyframes nodeAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.node {
+    animation: nodeAppear 0.3s ease-out;
+}
+
+/* Connection mode source highlight */
+.node-shape.connection-source {
+    stroke: #FF9800 !important;
+    stroke-width: 4 !important;
+    filter: drop-shadow(0 0 8px rgba(255, 152, 0, 0.6));
+    animation: pulse-connection 1s ease-in-out infinite;
+}
+
+@keyframes pulse-connection {
+    0%, 100% {
+        stroke-width: 4;
+    }
+    50% {
+        stroke-width: 5;
+    }
+}
+
+/* Node Groups */
+.node-group {
+    pointer-events: all;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Animation for newly created nodes */
+.node-group.node-entering {
+    animation: nodeEnter 0.3s ease-out;
+}
+
+@keyframes nodeEnter {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.node-group rect {
+    transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+.node-group:hover rect:first-child {
+    opacity: 0.5 !important;
+    filter: brightness(1.1);
+}
+
+/* Enhanced selection feedback */
+.node-group.selected {
+    animation: nodeSelected 0.3s ease-out;
+}
+
+@keyframes nodeSelected {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.node-group text {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    user-select: none;
+}
+
+/* Lock icon styling */
+.node-lock-icon {
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+}

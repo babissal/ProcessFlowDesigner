@@ -1,0 +1,227 @@
+/* Properties Panels - Shared Styles */
+
+.connection-properties-panel,
+.node-properties-panel {
+    position: fixed;
+    right: 20px;
+    top: 80px;
+    width: 280px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: var(--shadow-large);
+    z-index: 900;
+    overflow: hidden;
+}
+
+.connection-properties-panel.hidden,
+.node-properties-panel.hidden {
+    display: none;
+}
+
+/* Node properties panel positioned below connection panel when both visible */
+.node-properties-panel {
+    top: 400px;
+}
+
+/* Header */
+.properties-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--background-color);
+}
+
+.properties-header h4 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.properties-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.properties-close:hover {
+    background-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+/* Content */
+.properties-content {
+    padding: 16px;
+}
+
+/* Property Groups */
+.property-group {
+    margin-bottom: 16px;
+}
+
+.property-group:last-child {
+    margin-bottom: 0;
+}
+
+.property-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Form Controls */
+.property-select,
+.property-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    font-size: 13px;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.property-select:focus,
+.property-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+}
+
+.property-select {
+    cursor: pointer;
+}
+
+/* Actions */
+.property-actions {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 10px 16px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #1976D2;
+    box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(1px);
+}
+
+/* Color preview in dropdown */
+.property-select option {
+    padding: 4px;
+}
+
+/* Property Rows and Columns */
+.property-row {
+    display: flex;
+    gap: 8px;
+}
+
+.property-col {
+    flex: 1;
+}
+
+.property-sublabel {
+    display: block;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+.property-input-small {
+    width: 100%;
+    padding: 6px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    font-size: 12px;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.property-input-small:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
+}
+
+/* Checkbox */
+.property-checkbox {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+/* Danger Button */
+.btn-danger {
+    width: 100%;
+    padding: 10px 16px;
+    background-color: #F44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 8px;
+}
+
+.btn-danger:hover {
+    background-color: #D32F2F;
+    box-shadow: 0 2px 8px rgba(244, 67, 54, 0.3);
+}
+
+.btn-danger:active {
+    transform: translateY(1px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .connection-properties-panel,
+    .node-properties-panel {
+        right: 10px;
+        top: 70px;
+        width: 250px;
+    }
+
+    .node-properties-panel {
+        top: 380px;
+    }
+}
