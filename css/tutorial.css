@@ -22,7 +22,7 @@
 }
 
 .tutorial-content {
-    background: white;
+    background: var(--surface-color);
     border-radius: 12px;
     max-width: 600px;
     width: 90%;
@@ -34,7 +34,7 @@
 
 .tutorial-header {
     padding: 24px 24px 16px;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--border-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -43,14 +43,14 @@
 .tutorial-header h2 {
     margin: 0;
     font-size: 24px;
-    color: #333;
+    color: var(--text-primary);
 }
 
 .tutorial-skip {
     background: none;
     border: none;
     font-size: 32px;
-    color: #999;
+    color: var(--text-secondary);
     cursor: pointer;
     width: 40px;
     height: 40px;
@@ -62,8 +62,8 @@
 }
 
 .tutorial-skip:hover {
-    background-color: #f5f5f5;
-    color: #666;
+    background-color: var(--background-color);
+    color: var(--text-primary);
 }
 
 .tutorial-body {
@@ -73,7 +73,7 @@
 .tutorial-body p {
     margin: 0 0 16px;
     line-height: 1.6;
-    color: #555;
+    color: var(--text-secondary);
 }
 
 .tutorial-body p:last-child {
@@ -81,7 +81,7 @@
 }
 
 .tutorial-body strong {
-    color: #333;
+    color: var(--text-primary);
     font-weight: 600;
 }
 
@@ -95,11 +95,11 @@
 .tutorial-list li {
     margin: 8px 0;
     line-height: 1.6;
-    color: #555;
+    color: var(--text-secondary);
 }
 
 .tutorial-action {
-    background-color: #f5f5f5;
+    background-color: var(--background-color);
     padding: 16px;
     border-radius: 8px;
     margin: 16px 0;
@@ -112,11 +112,11 @@
 
 .tutorial-action li {
     margin: 6px 0;
-    color: #555;
+    color: var(--text-secondary);
 }
 
 .tutorial-tip {
-    background-color: #e3f2fd;
+    background-color: var(--active-tool-bg);
     padding: 12px 16px;
     border-radius: 8px;
     border-left: 4px solid #2196F3;
@@ -125,7 +125,7 @@
 }
 
 .tutorial-quick-reference {
-    background-color: #f5f5f5;
+    background-color: var(--background-color);
     padding: 16px;
     border-radius: 8px;
     margin: 16px 0;
@@ -133,7 +133,7 @@
 
 .tutorial-quick-reference h4 {
     margin: 0 0 12px;
-    color: #333;
+    color: var(--text-primary);
     font-size: 16px;
 }
 
@@ -144,7 +144,7 @@
 
 .tutorial-quick-reference li {
     margin: 6px 0;
-    color: #555;
+    color: var(--text-secondary);
 }
 
 .tutorial-footer {
@@ -155,7 +155,7 @@
 }
 
 .tutorial-progress {
-    color: #666;
+    color: var(--text-secondary);
     font-size: 14px;
 }
 
@@ -175,12 +175,12 @@
 }
 
 .tutorial-prev {
-    background-color: #f5f5f5;
-    color: #666;
+    background-color: var(--background-color);
+    color: var(--text-secondary);
 }
 
 .tutorial-prev:hover:not(:disabled) {
-    background-color: #e0e0e0;
+    background-color: var(--border-color);
 }
 
 .tutorial-prev:disabled {
@@ -230,7 +230,7 @@
 }
 
 .shortcuts-content {
-    background: white;
+    background: var(--surface-color);
     border-radius: 12px;
     max-width: 900px;
     width: 90%;
@@ -242,7 +242,7 @@
 
 .shortcuts-header {
     padding: 24px 24px 16px;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--border-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -251,14 +251,14 @@
 .shortcuts-header h2 {
     margin: 0;
     font-size: 24px;
-    color: #333;
+    color: var(--text-primary);
 }
 
 .shortcuts-close {
     background: none;
     border: none;
     font-size: 32px;
-    color: #999;
+    color: var(--text-secondary);
     cursor: pointer;
     width: 40px;
     height: 40px;
@@ -270,8 +270,8 @@
 }
 
 .shortcuts-close:hover {
-    background-color: #f5f5f5;
-    color: #666;
+    background-color: var(--background-color);
+    color: var(--text-primary);
 }
 
 .shortcuts-body {
@@ -284,7 +284,7 @@
 .shortcuts-column h3 {
     margin: 0 0 16px;
     font-size: 16px;
-    color: #333;
+    color: var(--text-primary);
     font-weight: 600;
     border-bottom: 2px solid #2196F3;
     padding-bottom: 8px;
@@ -299,31 +299,31 @@
 }
 
 .shortcut-item span {
-    color: #666;
+    color: var(--text-secondary);
     font-size: 14px;
 }
 
 .shortcut-item kbd {
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
     padding: 4px 8px;
     font-family: 'Courier New', monospace;
     font-size: 12px;
     font-weight: 600;
-    color: #333;
+    color: var(--text-primary);
     white-space: nowrap;
 }
 
 .shortcuts-footer {
     padding: 16px 24px 24px;
-    border-top: 1px solid #e0e0e0;
+    border-top: 1px solid var(--border-color);
     text-align: center;
 }
 
 .shortcuts-tip {
-    color: #666;
+    color: var(--text-secondary);
     font-size: 14px;
     margin: 0;
 }
@@ -350,72 +350,72 @@
 }
 
 /* Dark Theme Support */
-body.dark-theme .tutorial-content,
-body.dark-theme .shortcuts-content {
+body.theme-dark .tutorial-content,
+body.theme-dark .shortcuts-content {
     background: #2c2c2c;
     color: #e0e0e0;
 }
 
-body.dark-theme .tutorial-header,
-body.dark-theme .shortcuts-header {
+body.theme-dark .tutorial-header,
+body.theme-dark .shortcuts-header {
     border-bottom-color: #444;
 }
 
-body.dark-theme .tutorial-header h2,
-body.dark-theme .shortcuts-header h2,
-body.dark-theme .shortcuts-column h3 {
+body.theme-dark .tutorial-header h2,
+body.theme-dark .shortcuts-header h2,
+body.theme-dark .shortcuts-column h3 {
     color: #e0e0e0;
 }
 
-body.dark-theme .tutorial-body p,
-body.dark-theme .tutorial-features li,
-body.dark-theme .tutorial-list li,
-body.dark-theme .tutorial-action li,
-body.dark-theme .tutorial-quick-reference li,
-body.dark-theme .shortcut-item span {
+body.theme-dark .tutorial-body p,
+body.theme-dark .tutorial-features li,
+body.theme-dark .tutorial-list li,
+body.theme-dark .tutorial-action li,
+body.theme-dark .tutorial-quick-reference li,
+body.theme-dark .shortcut-item span {
     color: #b0b0b0;
 }
 
-body.dark-theme .tutorial-body strong {
+body.theme-dark .tutorial-body strong {
     color: #fff;
 }
 
-body.dark-theme .tutorial-action,
-body.dark-theme .tutorial-quick-reference {
+body.theme-dark .tutorial-action,
+body.theme-dark .tutorial-quick-reference {
     background-color: #3a3a3a;
 }
 
-body.dark-theme .tutorial-tip {
+body.theme-dark .tutorial-tip {
     background-color: #1e3a5f;
     border-left-color: #2196F3;
 }
 
-body.dark-theme .tutorial-prev {
+body.theme-dark .tutorial-prev {
     background-color: #3a3a3a;
     color: #e0e0e0;
 }
 
-body.dark-theme .tutorial-prev:hover:not(:disabled) {
+body.theme-dark .tutorial-prev:hover:not(:disabled) {
     background-color: #4a4a4a;
 }
 
-body.dark-theme .shortcut-item kbd {
+body.theme-dark .shortcut-item kbd {
     background-color: #3a3a3a;
     border-color: #555;
     color: #e0e0e0;
 }
 
-body.dark-theme .shortcuts-footer {
+body.theme-dark .shortcuts-footer {
     border-top-color: #444;
 }
 
-body.dark-theme .tutorial-skip,
-body.dark-theme .shortcuts-close {
+body.theme-dark .tutorial-skip,
+body.theme-dark .shortcuts-close {
     color: #999;
 }
 
-body.dark-theme .tutorial-skip:hover,
-body.dark-theme .shortcuts-close:hover {
+body.theme-dark .tutorial-skip:hover,
+body.theme-dark .shortcuts-close:hover {
     background-color: #3a3a3a;
     color: #ccc;
 }

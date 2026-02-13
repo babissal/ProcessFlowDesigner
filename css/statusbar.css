@@ -35,7 +35,7 @@
 
 .status-autosave {
     font-size: 10px;
-    color: #bdbdbd;
+    color: var(--text-secondary);
     transition: color 0.3s ease;
 }
 

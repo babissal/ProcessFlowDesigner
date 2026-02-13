@@ -17,7 +17,7 @@
 }
 
 .modal {
-    background-color: white;
+    background-color: var(--surface-color);
     border-radius: 8px;
     box-shadow: var(--shadow-large);
     min-width: 400px;

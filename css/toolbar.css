@@ -70,7 +70,7 @@
 }
 
 .workflow-name:focus {
-    background-color: white;
+    background-color: var(--surface-color);
     box-shadow: 0 0 0 2px var(--primary-color);
 }
 

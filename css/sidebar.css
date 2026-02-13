@@ -43,7 +43,7 @@
     padding: 12px;
     border: 2px solid var(--border-color);
     border-radius: 8px;
-    background-color: white;
+    background-color: var(--surface-color);
     cursor: grab;
     transition: all 0.2s ease;
 }
@@ -99,7 +99,7 @@
     padding: 12px;
     border: 2px solid var(--border-color);
     border-radius: 8px;
-    background-color: white;
+    background-color: var(--surface-color);
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -112,7 +112,7 @@
 
 .palette-tool.active {
     border-color: var(--primary-color);
-    background-color: #E3F2FD;
+    background-color: var(--active-tool-bg, #E3F2FD);
     box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.2);
 }
 

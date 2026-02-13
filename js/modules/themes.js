@@ -20,6 +20,9 @@ class Themes {
                 '--text-secondary': '#757575',
                 '--canvas-bg': '#fafafa',
                 '--grid-color': '#e0e0e0',
+                '--overlay-bg': 'rgba(255, 255, 255, 0.95)',
+                '--active-tool-bg': '#E3F2FD',
+                '--btn-secondary-hover': '#bdbdbd',
                 '--shadow': '0 2px 4px rgba(0, 0, 0, 0.1)',
                 '--shadow-large': '0 4px 8px rgba(0, 0, 0, 0.15)'
             },
@@ -31,6 +34,9 @@ class Themes {
                 '--text-secondary': '#a0a0a0',
                 '--canvas-bg': '#252525',
                 '--grid-color': '#404040',
+                '--overlay-bg': 'rgba(30, 30, 30, 0.95)',
+                '--active-tool-bg': '#1e3a5f',
+                '--btn-secondary-hover': '#505050',
                 '--shadow': '0 2px 4px rgba(0, 0, 0, 0.3)',
                 '--shadow-large': '0 4px 8px rgba(0, 0, 0, 0.5)'
             }
